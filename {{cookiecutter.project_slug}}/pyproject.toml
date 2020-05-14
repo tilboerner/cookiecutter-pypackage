@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_name }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_short_description }}"
+authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
+license = "{{ cookiecutter.license }}"
+
+{% if 'no' not in cookiecutter.command_line_interface|lower %}
+[tool.poetry.scripts]
+{{ cookiecutter.project_slug }} = '{{ cookiecutter.project_name }}.cli:main'
+{% endif %}
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+{%- if cookiecutter.command_line_interface|lower == 'click' %}
+click = "*"
+{%- endif %}
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"  # "*" does not work with black's versioning scheme
+bump2version = "*"
+coverage = "*"
+flake8 = "*"
+isort = "*"
+pre-commit = "*"
+pytest = "*"
+pytest-cov = "*"
+tox = "*"
+Sphinx = "*"
+pydocstyle = "*"
+sphinx_rtd_theme = "*"
+ipython = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.black]
+line-length = {{ cookiecutter.line_length }}
+target-version = ['py36', 'py37', 'py38']
+skip-string-normalization = true
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | setup.py           # also separately exclude a file named foo.py in
+                       # the root of the project
+)
+'''
