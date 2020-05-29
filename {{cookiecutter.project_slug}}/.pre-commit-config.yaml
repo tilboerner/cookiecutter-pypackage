@@ -22,12 +22,14 @@ repos:
         name: isort
         entry: isort
         language: system
+        exclude: docs
         types:
         - python
     -   id: black
         name: black
         entry: black
         language: system
+        exclude: docs
         types:
         - python
     -   id: flake8

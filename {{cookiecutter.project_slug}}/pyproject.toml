@@ -53,6 +53,7 @@ exclude = '''
     | buck-out
     | build
     | dist
+    | docs
   )/
   | setup.py           # also separately exclude a file named foo.py in
                        # the root of the project
