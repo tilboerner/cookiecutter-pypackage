@@ -84,8 +84,8 @@ test-coverage: deps  ## Check code coverage quickly with default Python.
 	-poetry run coverage report --show-missing --skip-empty --skip-covered
 	@echo xdg-open htmlcov/index.html
 
-poetry.lock: pyproject.toml
-	poetry lock && touch poetry.lock
+poetry.lock:
+	poetry lock
 
 $(VIRTUALENV)/.updated: $(VIRTUALENV) poetry.lock
 	# Need Poetry >= 1.1.0 for --remove-untracked
