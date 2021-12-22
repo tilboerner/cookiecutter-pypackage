@@ -11,13 +11,13 @@ license = "{{ cookiecutter.license }}"
 {% endif %}
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = "^3.6.2"
 {%- if cookiecutter.command_line_interface|lower == 'click' %}
 click = "*"
 {%- endif %}
 
 [tool.poetry.dev-dependencies]
-black = "^19.10b0"  # "*" does not work with black's versioning scheme
+black = "^21.12b0"  # "*" does not work with black's versioning scheme
 bump2version = "*"
 coverage = "*"
 flake8 = "*"
