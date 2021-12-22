@@ -37,7 +37,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.black]
 line-length = {{ cookiecutter.line_length }}
-target-version = ['py36', 'py37', 'py38']
+target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
 skip-string-normalization = true
 include = '\.pyi?$'
 exclude = '''
